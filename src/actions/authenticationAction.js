@@ -4,7 +4,6 @@ import {
   USER_DATA,SET_MESSAGE,GET_PAGE_DATA
 } from "../reducers/types";
 import { isEmpty } from "../helpers/validator";
-import {authHeader} from '../helpers'
 
 export const Authentication = (username, password) => dispatch => {
   let authinfo={

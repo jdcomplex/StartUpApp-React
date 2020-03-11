@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from "prop-types";
 import {Authentication,GetPageList} from '../../actions'
 import { connect } from 'react-redux';
 
@@ -35,12 +33,6 @@ window.location.reload();
     );
   }
 }
-
-// Home.propTypes = {
-//   classes: PropTypes.object
-// };
-
-
 const mapStateToProps = state => {
   return {
     userData: state.authenticationReducer.user,
