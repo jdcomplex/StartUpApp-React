@@ -45,7 +45,7 @@ import {Authentication} from '../../actions'
             </div>
         </div>
 
-        <button type="submit" className="btn btn-primary btn-block">Submit</button>
+        <button type="submit" className="btn btn-primary btn-block">Login</button>
         <p className="forgot-password text-right">
             Forgot <a href="#">password?</a>
         </p>
