@@ -87,7 +87,7 @@ class Register extends Component {
           Sign Up
         </button>
         <p className="forgot-password text-right">
-          Already registered <a href="#">sign in?</a>
+          Already registered <a href="/Account/Login">login?</a>
         </p>
       </form>
     );
