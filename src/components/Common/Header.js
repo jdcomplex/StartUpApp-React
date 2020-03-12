@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { BaseUrl } from "../../constants/apiRoutes";
 import { LogOut } from "../../actions";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser,faUserCog,faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 class Header extends Component {
   state = {
@@ -51,7 +53,7 @@ class Header extends Component {
                   to={"/Dashboard"}
                   onClick={this.toggleOpen}
                 >
-                  <i className="fas fa-user-cog fa-sm fa-fw mr-2 text-gray-400"></i>
+                  <FontAwesomeIcon  className="fa-sm fa-fw mr-2 text-gray-400" icon={faUserCog}/>
                   Dashboard
                 </Link>
               ) : (
@@ -60,13 +62,13 @@ class Header extends Component {
                   to={"/Account"}
                   onClick={this.toggleOpen}
                 >
-                  <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  <FontAwesomeIcon  className="fa-sm fa-fw mr-2 text-gray-400" icon={faUser}/>
                   My Account
                 </Link>
               )}
               <div className="dropdown-divider"></div>
               <Link className="dropdown-item" onClick={this.handleLogout}>
-                <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                <FontAwesomeIcon  className="fa-sm fa-fw mr-2 text-gray-400" icon={faSignOutAlt}/>
                 Logout
               </Link>
             </div>
