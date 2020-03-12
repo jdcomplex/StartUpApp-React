@@ -1,30 +1,48 @@
-import React from 'react';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import { BrowserRouter as Router,Switch } from 'react-router-dom';
-import AppRoute from './components/AppRoute'
-import MainLayout from './components/MainLayout';
-import EmptyLayout from './components/EmptyLayout';
-import Login from './components/Account/Login';
-import Register from './components/Account/Register';
-import Home from './components/Home';
-import {authHeader} from '../src/helpers'
-
+import React from "react";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import AppRoute from "./components/Common/AppRoute";
+import MainLayout from "./components/Common/MainLayout";
+import EmptyLayout from "./components/Common/EmptyLayout";
+import Login from "./components/Account/Login";
+import Register from "./components/Account/Register";
+import Home from "./components/Home";
+import { authHeader } from "../src/helpers";
+import Account from "./components/Account";
 
 function App() {
   authHeader();
-  return (<Router>
-    <div className="App">
-      <div className="auth-wrapper">
-        <div className="auth-inner">
-          <Switch>
-            <AppRoute exact path="/" layout={MainLayout} component={Home} />
-            <AppRoute exact path="/Account/Login" layout={EmptyLayout} component={Login} />
-            <AppRoute exact path="/Account/Register" layout={EmptyLayout} component={Register} />
-          </Switch>
+  return (
+    <Router>
+      <div className="App">
+        <div className="auth-wrapper">
+          <div className="auth-inner">
+            <Switch>
+              <AppRoute exact path="/" layout={MainLayout} component={Home} />
+              <AppRoute
+                exact
+                path="/Account/Login"
+                layout={EmptyLayout}
+                component={Login}
+              />
+              <AppRoute
+                exact
+                path="/Account/Register"
+                layout={EmptyLayout}
+                component={Register}
+              />
+              <AppRoute
+                exact
+                path="/Account"
+                layout={MainLayout}
+                component={Account}
+              />
+            </Switch>
+          </div>
         </div>
       </div>
-    </div></Router>
+    </Router>
   );
 }
 

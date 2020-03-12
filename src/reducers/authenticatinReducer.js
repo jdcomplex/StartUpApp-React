@@ -1,28 +1,33 @@
-import { USER_DATA,GET_PAGE_DATA } from './types';
-import { isEmpty } from '../helpers/validator';
+import { SET_CURRENT_USER, GET_PAGE_DATA, LOGOUT, SET_MESSAGE } from "./types";
+import { isEmpty } from "../helpers/validator";
 
-let user = JSON.parse(localStorage.getItem('user'));
+let user = JSON.parse(localStorage.getItem("user"));
 
 const initialState = {
-    user:user?user:null,
-    isLoggedIn:false,
-    pageData:[]
-}
+  user: user ? user : null,
+  errorMessage: null
+};
 
 export function authenticationReducer(state = initialState, action) {
   switch (action.type) {
-    case USER_DATA:
+    case SET_MESSAGE:
       return {
         ...state,
-        user: action.payload,
-        isLoggedIn:!isEmpty(action.payload)
+        errorMessage: action.payload
       };
-      case GET_PAGE_DATA:
-        return {
-          ...state,
-          pageData: action.payload
-        };
+    case SET_CURRENT_USER:
+      return {
+        ...state,
+        user: action.payload
+      };
+    case LOGOUT:
+      return {};
+    case GET_PAGE_DATA:
+      return {
+        ...state,
+        pageData: action.payload
+      };
     default:
-      return state
+      return state;
   }
 }
