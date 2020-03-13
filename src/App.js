@@ -16,31 +16,27 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <div className="auth-wrapper">
-          <div className="auth-inner">
-            <Switch>
-              <AppRoute exact path="/" layout={MainLayout} component={Home} />
-              <AppRoute
-                exact
-                path="/Account/Login"
-                layout={EmptyLayout}
-                component={Login}
-              />
-              <AppRoute
-                exact
-                path="/Account/Register"
-                layout={EmptyLayout}
-                component={Register}
-              />
-              <AppRoute
-                exact
-                path="/Account"
-                layout={MainLayout}
-                component={Account}
-              />
-            </Switch>
-          </div>
-        </div>
+        <Switch>
+          <AppRoute exact path="/" layout={MainLayout} component={Home} />
+          <AppRoute
+            exact
+            path="/Account/Login"
+            layout={EmptyLayout}
+            component={Login}
+          />
+          <AppRoute
+            exact
+            path="/Account/Register"
+            layout={EmptyLayout}
+            component={Register}
+          />
+          <AppRoute
+            exact
+            path="/Account"
+            layout={MainLayout}
+            component={Account}
+          />
+        </Switch>
       </div>
     </Router>
   );

@@ -1,82 +1,79 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Authentication } from "../../actions";
+import { isLoggedIn } from "../../helpers/authhelper";
+import { Form, Button, Spinner } from "react-bootstrap";
 
 class Login extends Component {
   state = {
     email: "",
-    password: ""
+    password: "",
+    isLoading: false
   };
   componentWillMount() {
-    if (this.props.userData) {
-      window.location.href = "/";
+    if (isLoggedIn()) {
+      this.props.history.push("/");
     }
   }
   handleChange = (e) => {
     this.setState({ ...this.state, [e.target.name]: e.target.value });
   };
   handleSubmit = (event) => {
+    this.setState({ ...this.state, isLoading: true });
     event.preventDefault();
     let { email, password } = this.state;
-    this.props.Authentication(email, password);
+    this.props.Authentication(email, password, this.props.history);
+    this.setState({ ...this.state, isLoading: false });
   };
   render() {
+    const { isLoading } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
         <h3>Sign In</h3>
 
-        <div className="form-group">
-          <label>Email address</label>
-          <input
+        <Form.Group>
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
             value={this.state.email}
             onChange={(e) => this.handleChange(e)}
             name="email"
             type="email"
-            className="form-control"
             placeholder="Enter email"
             required
           />
-        </div>
+        </Form.Group>
 
-        <div className="form-group">
-          <label>Password</label>
-          <input
+        <Form.Group>
+          <Form.Label>Password</Form.Label>
+          <Form.Control
             value={this.state.password}
             onChange={(e) => this.handleChange(e)}
             type="password"
             name="password"
-            className="form-control"
             placeholder="Enter password"
             required
           />
-        </div>
+        </Form.Group>
 
-        <div className="form-group">
-          <div className="custom-control custom-checkbox">
-            <input
-              type="checkbox"
-              className="custom-control-input"
-              id="customCheck1"
-            />
-            <label className="custom-control-label" htmlFor="customCheck1">
-              Remember me
-            </label>
-          </div>
+        <Form.Group>
+          <Form.Check type="checkbox" label=" Remember me" name="IsRemember" />
           {this.props.errorMessage && (
-            <label className="text-danger small text-right">
+            <Form.Label className="text-danger small text-right">
               {this.props.errorMessage}
-            </label>
+            </Form.Label>
           )}
-        </div>
+          {isLoading && <Spinner animation="border" />}
+        </Form.Group>
 
-        <button type="submit" className="btn btn-primary btn-block">
+        <Button variant="primary" type="submit" block>
           Login
-        </button>
+        </Button>
         <p className="forgot-password text-right">
-          Forgot <a href="#">password?</a>
+          Forgot <Link to="/Account/ForgotPassword">password?</Link>
         </p>
-      </form>
+      </Form>
     );
   }
 }
@@ -87,7 +84,6 @@ Login.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    userData: state.authenticationReducer.user,
     errorMessage: state.authenticationReducer.errorMessage
   };
 };

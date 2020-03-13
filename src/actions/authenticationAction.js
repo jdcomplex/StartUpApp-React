@@ -1,9 +1,11 @@
+import React from "react";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 import { BaseApiUrl } from "../constants/apiRoutes";
 import { SET_CURRENT_USER, SET_MESSAGE, LOGOUT } from "../reducers/types";
 import { isEmpty } from "../helpers/validator";
 
-export const Authentication = (username, password) => (dispatch) => {
+export const Authentication = (username, password, history) => (dispatch) => {
   let authinfo = {
     Username: username,
     Password: password
@@ -17,7 +19,7 @@ export const Authentication = (username, password) => (dispatch) => {
           type: SET_CURRENT_USER,
           payload: resp.data.Result
         });
-        window.location.href = "/";
+        history.push("/");
       } else {
         dispatch({
           type: SET_MESSAGE,

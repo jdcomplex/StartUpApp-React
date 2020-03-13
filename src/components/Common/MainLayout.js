@@ -1,10 +1,12 @@
 import React from "react";
 import Header from "./Header";
 const MainLayout = (props) => (
-  <div>
+  <React.Fragment>
     <Header />
-    {props.children}
-  </div>
+    <div className="auth-wrapper container">
+      <div className="auth-inner">{props.children}</div>
+    </div>
+  </React.Fragment>
 );
 
 export default MainLayout;
