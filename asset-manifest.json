@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/StartUpApp-React/static/css/main.aa6c083a.chunk.css",
+    "main.js": "/StartUpApp-React/static/js/main.e6788fa3.chunk.js",
+    "main.js.map": "/StartUpApp-React/static/js/main.e6788fa3.chunk.js.map",
+    "runtime-main.js": "/StartUpApp-React/static/js/runtime-main.b19bac1d.js",
+    "runtime-main.js.map": "/StartUpApp-React/static/js/runtime-main.b19bac1d.js.map",
+    "static/css/2.47e06e2e.chunk.css": "/StartUpApp-React/static/css/2.47e06e2e.chunk.css",
+    "static/js/2.aaa83aa8.chunk.js": "/StartUpApp-React/static/js/2.aaa83aa8.chunk.js",
+    "static/js/2.aaa83aa8.chunk.js.map": "/StartUpApp-React/static/js/2.aaa83aa8.chunk.js.map",
+    "index.html": "/StartUpApp-React/index.html",
+    "precache-manifest.30b088b584ca1d37c818c7b68d72091e.js": "/StartUpApp-React/precache-manifest.30b088b584ca1d37c818c7b68d72091e.js",
+    "service-worker.js": "/StartUpApp-React/service-worker.js",
+    "static/css/2.47e06e2e.chunk.css.map": "/StartUpApp-React/static/css/2.47e06e2e.chunk.css.map",
+    "static/css/main.aa6c083a.chunk.css.map": "/StartUpApp-React/static/css/main.aa6c083a.chunk.css.map",
+    "static/js/2.aaa83aa8.chunk.js.LICENSE.txt": "/StartUpApp-React/static/js/2.aaa83aa8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b19bac1d.js",
+    "static/css/2.47e06e2e.chunk.css",
+    "static/js/2.aaa83aa8.chunk.js",
+    "static/css/main.aa6c083a.chunk.css",
+    "static/js/main.e6788fa3.chunk.js"
+  ]
+}
