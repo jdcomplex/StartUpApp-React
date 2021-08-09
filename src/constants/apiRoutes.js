@@ -1,2 +1,2 @@
-export const BaseApiUrl = "https://localhost:44360/api/";
-export const BaseUrl = "https://localhost:44360/";
+export const BaseApiUrl = "https://startupapp.jedosoft.com/api/";
+export const BaseUrl = "https://startupapp.jedosoft.com/";

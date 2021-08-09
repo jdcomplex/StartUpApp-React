@@ -1,15 +1,17 @@
 import React from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+// import "./App.css";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import AppRoute from "./components/Common/AppRoute";
 import MainLayout from "./components/Common/MainLayout";
 import EmptyLayout from "./components/Common/EmptyLayout";
+import DashboardLayout from "./components/Common/DashboardLayout";
 import Login from "./components/Account/Login";
 import Register from "./components/Account/Register";
 import Home from "./components/Home";
 import { authHeader } from "../src/helpers";
 import Account from "./components/Account";
+import Dashboard from './components/Admin/Dashboard'
 
 function App() {
   authHeader();
@@ -35,6 +37,12 @@ function App() {
             path="/Account"
             layout={MainLayout}
             component={Account}
+          />
+          <AppRoute
+            exact
+            path="/Admin/Dashboard"
+            layout={DashboardLayout}
+            component={Dashboard}
           />
         </Switch>
       </div>
