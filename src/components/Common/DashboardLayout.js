@@ -11,7 +11,8 @@ import Sidebar from '../Admin/Common/Sidebar/Sidebar';
 import PageLoading from '../Admin/Common/page-loading/PageLoading';
 import * as ActionTypes from '../../reducers/types';
 
-const DashboardLayout = ({onUserLoad}) => {
+// const DashboardLayout = ({onUserLoad}) => {
+    const DashboardLayout = (props) => {
     const location = useLocation();
     const [appLoadingState, updateAppLoading] = useState(false);
     const [menusidebarState, updateMenusidebarState] = useState({
@@ -24,20 +25,20 @@ console.log(location);
         });
     };
 
-    useEffect(() => {
-        updateAppLoading(true);
-        const fetchProfile = async () => {
-            try {
-                // const response = await Gatekeeper.getProfile();
-                // onUserLoad({...response});
-                updateAppLoading(false);
-            } catch (error) {
-                updateAppLoading(false);
-            }
-        };
-        fetchProfile();
-        return () => {};
-    }, [onUserLoad]);
+    // useEffect(() => {
+    //     updateAppLoading(true);
+    //     const fetchProfile = async () => {
+    //         try {
+    //             // const response = await Gatekeeper.getProfile();
+    //             // onUserLoad({...response});
+    //             updateAppLoading(false);
+    //         } catch (error) {
+    //             updateAppLoading(false);
+    //         }
+    //     };
+    //     fetchProfile();
+    //     return () => {};
+    // }, [onUserLoad]);
 
     let urlArray = location.pathname.split('/').slice(1, 4);
     console.log(urlArray);
@@ -102,11 +103,12 @@ console.log(location);
 
  
                     <section className="content">
-                        <Switch>
+                        {/* <Switch>
                             <Route exact path="/admin/dashboard" component={Dashboard} />
                             <Route exact path="/admin/profile" component={Profile} />
                             <Route exact path="/admin/profile/edit" component={ProfileEdit} />
-                        </Switch>
+                        </Switch> */}
+                        {props.childern}
                     </section>
                 </div>
                 <Footer />
