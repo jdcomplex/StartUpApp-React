@@ -12,6 +12,8 @@ import Home from "./components/Home";
 import { authHeader } from "../src/helpers";
 import Account from "./components/Account";
 import Dashboard from './components/Admin/Dashboard'
+import Profile from './components/Admin/Profile'
+import ProfileEdit from './components/Admin/Profile/edit'
 
 function App() {
   authHeader();
@@ -43,6 +45,18 @@ function App() {
             path="/Admin/Dashboard"
             layout={DashboardLayout}
             component={Dashboard}
+          />
+          <AppRoute
+            exact
+            path="/Admin/Profile"
+            layout={DashboardLayout}
+            component={Profile}
+          />
+          <AppRoute
+            exact
+            path="/Admin/Profile/Edit"
+            layout={DashboardLayout}
+            component={ProfileEdit}
           />
         </Switch>
       </div>
